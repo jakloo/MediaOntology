@@ -22,6 +22,68 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#featuresSong -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#featuresSong">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/SingleWork"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LiteraryWork"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
+        <rdfs:comment>A song featured in a multimedial work. It doesn&apos;t matter if it was composed/recorded specifically for that work or not.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#hasCover -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#hasCover">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasDerivedWork"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
+        <rdfs:comment>Cover version of a song performed by another music artist.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#hasDirectSequel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#hasDirectSequel">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasSequel"/>
+        <rdfs:comment>A sequel that majorly features or references characters and plot points from its precedessing work. The sequel is harder to consume as a stand-alone work.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#hasLooseSequel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#hasLooseSequel">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasSequel"/>
+        <rdfs:comment>A sequel that barely features or references characters and plot points from its precedessing work. It should be easy to consume as a stand-alone work.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#hasNewRecording -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#hasNewRecording">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasDerivedWork"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
+        <rdfs:comment>Re-recording of a song by the same music artist.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#startsWithWork -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#startsWithWork">
@@ -78,7 +140,8 @@
     <!-- http://www.semanticweb.org/ontologies/storyMedia/hasContinuation -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/hasContinuation">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasSameContinuityDerivedWork"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasSequel"/>
+        <rdfs:comment>A sequel that continues the same story, i.e. a single story that was split into multiple works.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -104,9 +167,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/storyMedia/hasInspiration -->
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/hasInspiredWork -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/hasInspiration">
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/hasInspiredWork">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasAdaptation"/>
     </owl:ObjectProperty>
     
@@ -210,6 +273,100 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Album -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Album">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MusicWork"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#MusicVideo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#MusicVideo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/CinematicWork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#MusicWork -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#MusicWork">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/SingleWork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Poem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Poem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LiteraryWork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Song -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Song">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MusicWork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#StagePlay -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#StagePlay">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#TheatricalWork"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#TheatricalProduction"/>
+        <rdfs:comment>Text of a theatre play.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#TheatricalProduction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TheatricalProduction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#TheatricalWork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#TheatricalWork -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TheatricalWork">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/SingleWork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#classicalSong -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#classicalSong">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
+        <rdfs:comment>A classical musical composition that can be identified by its composer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#musicalSong -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#musicalSong">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
+        <rdfs:comment>A musical composition that can be identified by a musical/opera/etc.. it was originally written for.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#recordedSong -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#recordedSong">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
+        <rdfs:comment>A concrete recording of a song that can be identified by its interpret and physical/digital release as a single or as a part of an album.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia/CinematicWork -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/CinematicWork">
@@ -223,6 +380,7 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/CompoundWork">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/SingleWork"/>
+        <rdfs:comment>A grouping of multiple works that are somehow tied together into a bigger whole, usually by the same branding, telling the same story, using the same characters... The compound work itself is only an abstract concept, audience cannot consume it, only its individual parts.</rdfs:comment>
     </owl:Class>
     
 
@@ -327,6 +485,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/SingleWork">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
+        <rdfs:comment>A work that was produced as a single a standalone product.</rdfs:comment>
     </owl:Class>
     
 
@@ -352,6 +511,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Universe">
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
+        <rdfs:comment>A setting in which fictional stories can take place. It may be a wholy fictional universe/world/timeline, or simply a fictional depicture of the real world with some distinct features common among its works.</rdfs:comment>
     </owl:Class>
     
 
@@ -366,7 +526,9 @@
 
     <!-- http://www.semanticweb.org/ontologies/storyMedia/Work -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Work">
+        <rdfs:comment>A piece of art or media created by humans for artistic and/or entertainment purposes.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -378,6 +540,64 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries"/>
+        <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#DesolationOfSmaug"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#BattleOfTheFiveArmies -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleOfTheFiveArmies">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#DesolationOfSmaug -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#DesolationOfSmaug">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries"/>
+        <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleOfTheFiveArmies"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Eä -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Eä">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Universe"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#HobbitBook -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HobbitBook">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Novel"/>
+        <storyMedia:hasLooseSequel rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBookSeries"/>
+        <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries"/>
+        <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Eä"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
+        <storyMedia:startsWithWork rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney"/>
+        <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Eä"/>
+    </owl:NamedIndividual>
     
 
 
@@ -396,6 +616,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBookSeries">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
         <storyMedia:startsWithWork rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/FellowshipOfTheRingBook"/>
+        <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Eä"/>
     </owl:NamedIndividual>
     
 
@@ -430,14 +651,7 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/CinematicWork"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/GameWork"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/LiteraryWork"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#MusicVideo"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Episode"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Season"/>
@@ -447,11 +661,30 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#MusicWork"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TheatricalWork"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/CinematicWork"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/GameWork"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/LiteraryWork"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Poem"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/GraphicNovel"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/LiteraryScreenplay"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Novel"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/ShortStory"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/StoryCollection"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#classicalSong"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#musicalSong"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#recordedSong"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
