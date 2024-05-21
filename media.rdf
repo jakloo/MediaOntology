@@ -27,8 +27,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#featuredIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#featuresSong"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
     </owl:ObjectProperty>
     
 
@@ -37,8 +35,6 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#featuresSong">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -59,9 +55,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#follows">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#follows"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#isFollowedBy"/>
     </owl:ObjectProperty>
     
 
@@ -80,9 +74,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#hasCover">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasDerivedWork"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#isCoverOf"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
         <rdfs:comment>Cover version of a song performed by another music artist.</rdfs:comment>
@@ -113,6 +104,7 @@
     <!-- http://www.semanticweb.org/ontologies/storyMedia#hasMusicVideo -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#hasMusicVideo">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#isMusicVideoTo"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#RecordedSong"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MusicVideo"/>
     </owl:ObjectProperty>
@@ -237,12 +229,17 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#isMusicVideoTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#isMusicVideoTo"/>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#isNewContinuityDerivedWorkOf -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#isNewContinuityDerivedWorkOf">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#isDerivedWorkOf"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasNewContinuityDerivedWork"/>
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasRemake"/>
     </owl:ObjectProperty>
     
 
@@ -277,6 +274,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#isRemakeOf">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#isNewContinuityDerivedWorkOf"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasRemake"/>
     </owl:ObjectProperty>
     
 
@@ -325,6 +323,25 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#shouldBeExperiencedAfter -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#shouldBeExperiencedAfter">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#follows"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#shouldBeExperiencedBefore"/>
+        <rdfs:comment>Other work provides some context that helps to fully understand this one, or this work spoils plot points from the other one, even though this is not an explicit sequel.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#shouldBeExperiencedBefore -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#shouldBeExperiencedBefore">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#startsWithWork -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#startsWithWork">
@@ -349,8 +366,6 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/belongsToFranchise">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Franchise"/>
     </owl:ObjectProperty>
@@ -361,9 +376,6 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/belongsToSeries">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
     </owl:ObjectProperty>
@@ -392,9 +404,6 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/hasDerivedWork">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
         <rdfs:comment>A work that borrows some aspects from another work.</rdfs:comment>
@@ -415,8 +424,6 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/hasInspiredWork">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasDerivedWork"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:comment>A work that borrows some minimal story or production aspects from another work.</rdfs:comment>
     </owl:ObjectProperty>
     
@@ -695,6 +702,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Novel">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LiteraryWork"/>
+        <rdfs:comment>This work provides some context that helps to fully understand the other work, or the other work spoils plot points from this one, even though it is not an explicit sequel.</rdfs:comment>
     </owl:Class>
     
 
@@ -808,6 +816,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/VideoGame"/>
         <storyMedia:isFollowedBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth2"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarthSeries"/>
     </owl:NamedIndividual>
     
 
@@ -816,6 +825,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth2">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/VideoGame"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarthSeries"/>
     </owl:NamedIndividual>
     
 
@@ -825,6 +835,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarthSeries">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
         <storyMedia:startsWithWork rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth"/>
+        <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Eä"/>
     </owl:NamedIndividual>
     
 
@@ -861,6 +872,8 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#FellowshipOfTheRingMovie">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries"/>
+        <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#TwoTowersMovie"/>
     </owl:NamedIndividual>
     
 
@@ -889,6 +902,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
+        <storyMedia:isPrequelOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries"/>
         <storyMedia:startsWithWork rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney"/>
         <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Eä"/>
     </owl:NamedIndividual>
@@ -917,7 +931,9 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
         <storyMedia:hasAlternativeVersion rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth"/>
+        <storyMedia:hasAlternativeVersion rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth2"/>
         <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth"/>
+        <hasLooseAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth2"/>
         <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Eä"/>
     </owl:NamedIndividual>
     
@@ -927,6 +943,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries"/>
     </owl:NamedIndividual>
     
 
@@ -935,6 +952,8 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TwoTowersMovie">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries"/>
+        <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie"/>
     </owl:NamedIndividual>
     
 
@@ -945,6 +964,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Novel"/>
         <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBookSeries"/>
         <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/TwoTowersBook"/>
+        <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#FellowshipOfTheRingMovie"/>
     </owl:NamedIndividual>
     
 
