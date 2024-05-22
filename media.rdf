@@ -878,6 +878,15 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#AvatarTheLastAirbender -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#AvatarTheLastAirbender">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Show"/>
+        <storyMedia:hasFirstPart rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Book1Water"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth">
@@ -912,6 +921,33 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleOfTheFiveArmies">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
         <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Book1Water -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Book1Water">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Season"/>
+        <storyMedia:isFollowedBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Book2Earth"/>
+        <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#TheLastAirbender"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Book2Earth -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Book2Earth">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Season"/>
+        <storyMedia:isFollowedBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Book3Fire"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Book3Fire -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Book3Fire">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Season"/>
     </owl:NamedIndividual>
     
 
@@ -1169,6 +1205,14 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <belongsToFranchise rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelCinematicUniverse"/>
         <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelSpidermanMovies"/>
         <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelSuperheroUniverse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#TheLastAirbender -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TheLastAirbender">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
     </owl:NamedIndividual>
     
 
