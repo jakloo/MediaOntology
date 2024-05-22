@@ -165,12 +165,29 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#hasRecording -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#hasRecording">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MusicalSong"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#RecordedSong"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#hasSatire -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#hasSatire">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasDerivedWork"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#isSatireOf"/>
         <rdfs:comment>A work that satirises or parodises this one.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#hasStageProduction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#hasStageProduction">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasDerivedWork"/>
     </owl:ObjectProperty>
     
 
@@ -370,6 +387,14 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#isSpinOffOf">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#isSameContinuityDerivedWorkOf"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/hasSpinOff"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#isStageProductionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#isStageProductionOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#isDerivedWorkOf"/>
     </owl:ObjectProperty>
     
 
@@ -847,7 +872,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
-        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies"/>
         <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#DesolationOfSmaug"/>
     </owl:NamedIndividual>
     
@@ -886,7 +911,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleOfTheFiveArmies">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
-        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies"/>
     </owl:NamedIndividual>
     
 
@@ -896,7 +921,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#DesolationOfSmaug">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
         <storyMedia:featuresSong rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#ISeeFire"/>
-        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies"/>
         <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleOfTheFiveArmies"/>
     </owl:NamedIndividual>
     
@@ -923,8 +948,43 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#FellowshipOfTheRingMovie">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
-        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovies"/>
         <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#TwoTowersMovie"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Hamlet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Hamlet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#StagePlay"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MusicalSong"/>
+        <storyMedia:hasRecording rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou1995"/>
+        <storyMedia:hasRecording rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou2019"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou1995 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou1995">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
+        <storyMedia:hasNewRecording rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou2019"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou2019 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou2019">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
     </owl:NamedIndividual>
     
 
@@ -941,20 +1001,20 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HobbitBook">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Novel"/>
-        <storyMedia:hasLooseSequel rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBookSeries"/>
-        <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries"/>
+        <storyMedia:hasLooseSequel rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBooks"/>
+        <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies"/>
         <hasLooseAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Hobbit1966Movie"/>
         <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Eä"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries -->
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovieSeries">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
         <storyMedia:hasFirstWork rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney"/>
-        <storyMedia:isPrequelOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries"/>
+        <storyMedia:isPrequelOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovies"/>
         <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Eä"/>
     </owl:NamedIndividual>
     
@@ -977,9 +1037,68 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries -->
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#LionKing -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKing">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <storyMedia:hasLooseSequel rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKing2"/>
+        <storyMedia:inspiredBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Hamlet"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKingOriginalMovies"/>
+        <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKingMusical"/>
+        <hasRemake rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKingRemake"/>
+        <hasSideStory rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKing1/2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#LionKing2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKing2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <storyMedia:featuresSong rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou1995"/>
+        <storyMedia:shouldBeExperiencedBefore rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKing1/2"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKingOriginalMovies"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#LionKingMusical -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKingMusical">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#StagePlay"/>
+        <storyMedia:hasStageProduction rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKingMusicalBroadway"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#LionKingMusicalBroadway -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKingMusicalBroadway">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#TheatricalProduction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#LionKingOriginalMovies -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKingOriginalMovies">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#LionKingRemake -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKingRemake">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <hasPrequel rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Mufasa"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovies -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovies">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
         <storyMedia:hasAlternativeVersion rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth"/>
         <storyMedia:hasAlternativeVersion rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth2"/>
@@ -1016,11 +1135,19 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Mufasa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Mufasa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
-        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovies"/>
     </owl:NamedIndividual>
     
 
@@ -1050,8 +1177,17 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TwoTowersMovie">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
-        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovies"/>
         <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#LionKing1/2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKing1/2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKingOriginalMovies"/>
     </owl:NamedIndividual>
     
 
@@ -1060,19 +1196,19 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/FellowshipOfTheRingBook">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Novel"/>
-        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBookSeries"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBooks"/>
         <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/TwoTowersBook"/>
         <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#FellowshipOfTheRingMovie"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBookSeries -->
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBooks -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBookSeries">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBooks">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
         <storyMedia:hasFirstWork rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/FellowshipOfTheRingBook"/>
-        <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries"/>
+        <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovies"/>
         <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Eä"/>
     </owl:NamedIndividual>
     
@@ -1082,7 +1218,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/ReturnOfTheKingBook">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Novel"/>
-        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBookSeries"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBooks"/>
         <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie"/>
     </owl:NamedIndividual>
     
@@ -1092,7 +1228,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/TwoTowersBook">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Novel"/>
-        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBookSeries"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBooks"/>
         <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/ReturnOfTheKingBook"/>
         <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#TwoTowersMovie"/>
     </owl:NamedIndividual>
