@@ -833,6 +833,16 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#AmazingSpidermanMovies -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#AmazingSpidermanMovies">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
+        <storyMedia:hasDirectSequel rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#SpidermanNoWayHome"/>
+        <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelSuperheroUniverse"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney">
@@ -980,11 +990,58 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#MarvelCinematicUniverse -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#MarvelCinematicUniverse">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Franchise"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#MarvelSpidermanMovies -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#MarvelSpidermanMovies">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
+        <belongsToFranchise rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelCinematicUniverse"/>
+        <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelSuperheroUniverse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#MarvelSuperheroUniverse -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#MarvelSuperheroUniverse">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Universe"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
         <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovieSeries"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#SamRaimiSpidermanMovies -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#SamRaimiSpidermanMovies">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
+        <storyMedia:hasDirectSequel rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#SpidermanNoWayHome"/>
+        <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelSuperheroUniverse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#SpidermanNoWayHome -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#SpidermanNoWayHome">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <belongsToFranchise rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelCinematicUniverse"/>
+        <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelSpidermanMovies"/>
+        <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelSuperheroUniverse"/>
     </owl:NamedIndividual>
     
 
