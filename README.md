@@ -6,7 +6,7 @@ The purpose of this ontology is to store information about works of art and medi
 
 2. grouping of multiple works into greater wholes based on production or marketing, such as series and brands
 
-For concrete information about the entities in the ontology, check the OWL doc documentation (data about individuals seems to be incorrectly exported by Protégé, showing nonexisting assertions in the OWL doc for most individuals).
+For concrete information about the entities in the ontology, check the OWL doc documentation (**however, data about individuals seems to be incorrectly exported by Protégé, showing nonexisting assertions in the OWL doc for most individuals**).
 
 ## Authors:
 
