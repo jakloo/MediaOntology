@@ -42,11 +42,38 @@ Authors:
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#gYear -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#actsIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#actsIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Actor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#TheatricalWork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/CinematicWork"/>
+    </owl:ObjectProperty>
     
 
 
@@ -175,6 +202,14 @@ Authors:
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
         <rdfs:comment>The first work to be produced as a part of this greater whole.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#hasGenre -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#hasGenre">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
     </owl:ObjectProperty>
     
 
@@ -528,6 +563,15 @@ Authors:
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#producedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#producedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/ProductionCompany"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#seriesContains -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#seriesContains">
@@ -554,6 +598,15 @@ Authors:
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
         <rdfs:comment>This work provides some context that helps to fully understand another one, or that work spoils plot points from this one, even though it is not an explicit sequel.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#writtenBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia#writtenBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LiteraryWork"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Writer"/>
     </owl:ObjectProperty>
     
 
@@ -730,11 +783,100 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/cinematicType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/cinematicType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/CinematicWork"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/pageCount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/pageCount">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LiteraryWork"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/runtime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/runtime">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/CinematicWork"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/title">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/year -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/storyMedia/year">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://example.org/ontology#BoardGameGenre -->
+
+    <owl:Class rdf:about="http://example.org/ontology#BoardGameGenre">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontology#Genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontology#Genre -->
+
+    <owl:Class rdf:about="http://example.org/ontology#Genre">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Person"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Universe"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontology#MusicGenre -->
+
+    <owl:Class rdf:about="http://example.org/ontology#MusicGenre">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontology#Genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/ontology#VideoGameGenre -->
+
+    <owl:Class rdf:about="http://example.org/ontology#VideoGameGenre">
+        <rdfs:subClassOf rdf:resource="http://example.org/ontology#Genre"/>
+    </owl:Class>
     
 
 
@@ -745,6 +887,12 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Song"/>
         <rdfs:comment>A music album</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Company -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Company"/>
     
 
 
@@ -828,6 +976,14 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TheatricalWork">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/SingleWork"/>
         <rdfs:comment>A medial work in the field of theatre.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/Actor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Actor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Person"/>
     </owl:Class>
     
 
@@ -924,6 +1080,31 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Person">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Universe"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/ProductionCompany -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/ProductionCompany">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Company"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/PublishingCompany -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/PublishingCompany">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Company"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia/Season -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Season">
@@ -1014,6 +1195,14 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/Writer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Writer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Person"/>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -1022,6 +1211,32 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Abstract -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Abstract">
+        <rdf:type rdf:resource="http://example.org/ontology#BoardGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Action -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Action">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
+        <rdf:type rdf:resource="http://example.org/ontology#VideoGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Adventure -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Adventure">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
+        <rdf:type rdf:resource="http://example.org/ontology#VideoGameGenre"/>
+    </owl:NamedIndividual>
     
 
 
@@ -1042,6 +1257,8 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
         <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies"/>
         <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#DesolationOfSmaug"/>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">169</runtime>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2012</year>
         <rdfs:label xml:lang="en">The Hobbit: An Unexpected Journey</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1057,12 +1274,23 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Backgammon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Backgammon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/TabletopGame"/>
+        <year>2500 B.C.</year>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/VideoGame"/>
+        <storyMedia:hasGenre rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Strategy"/>
         <storyMedia:isFollowedBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth2"/>
         <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarthSeries"/>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2004</year>
         <rdfs:label xml:lang="en">The Lord of the Rings: The Battle for Middle-earth</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1073,8 +1301,10 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth2">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/VideoGame"/>
         <storyMedia:hasExpansion rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#RiseOfTheWitchKing"/>
+        <storyMedia:hasGenre rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Strategy"/>
         <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarthSeries"/>
         <hasPrequel rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#RiseOfTheWitchKing"/>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2006</year>
         <rdfs:label xml:lang="en">The Lord of the Rings: The Battle for Middle-earth II</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1096,8 +1326,18 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleOfTheFiveArmies">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <storyMedia:hasGenre rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Fantasy"/>
         <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies"/>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2014</year>
         <rdfs:label xml:lang="en">The Hobbit: The Battle of the Five Armies</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Blues -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Blues">
+        <rdf:type rdf:resource="http://example.org/ontology#MusicGenre"/>
     </owl:NamedIndividual>
     
 
@@ -1108,6 +1348,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Season"/>
         <storyMedia:isFollowedBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Book2Earth"/>
         <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#TheLastAirbender"/>
+        <title>Book 1: Water</title>
         <rdfs:label xml:lang="en">Book 1: Water (Avatar: The Last Airbender)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1118,6 +1359,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Book2Earth">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Season"/>
         <storyMedia:isFollowedBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Book3Fire"/>
+        <title>Book 2: Earth</title>
         <rdfs:label xml:lang="en">Book 2: Earth (Avatar: The Last Airbender)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1127,7 +1369,69 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Book3Fire">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Season"/>
+        <title>Book 3: Fire</title>
         <rdfs:label xml:lang="en">Book 3: Fire (Avatar: The Last Airbender)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#CardGames -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#CardGames">
+        <rdf:type rdf:resource="http://example.org/ontology#BoardGameGenre"/>
+        <rdfs:label xml:lang="en">Card games</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Chess -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Chess">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/TabletopGame"/>
+        <storyMedia:hasGenre rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Abstract"/>
+        <storyMedia:hasGenre rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Strategy"/>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1475</year>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Classical -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Classical">
+        <rdf:type rdf:resource="http://example.org/ontology#MusicGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Comedy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Comedy">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Cooperative -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Cooperative">
+        <rdf:type rdf:resource="http://example.org/ontology#BoardGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Country -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Country">
+        <rdf:type rdf:resource="http://example.org/ontology#MusicGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#DeckBuilding -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#DeckBuilding">
+        <rdf:type rdf:resource="http://example.org/ontology#BoardGameGenre"/>
+        <rdfs:label xml:lang="en">Deck building</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1137,8 +1441,13 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#DesolationOfSmaug">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
         <storyMedia:featuresSong rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#ISeeFire"/>
+        <storyMedia:hasGenre rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Adventure"/>
+        <storyMedia:hasGenre rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Fantasy"/>
+        <storyMedia:producedBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#NewLineCinema"/>
         <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies"/>
         <hasContinuation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleOfTheFiveArmies"/>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">163</runtime>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2013</year>
         <rdfs:label xml:lang="en">The Hobbit: The Desolation of Smaug</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1155,12 +1464,44 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Dice -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Dice">
+        <rdf:type rdf:resource="http://example.org/ontology#BoardGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Drama -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Drama">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#Ea -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Ea">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Universe"/>
         <rdfs:comment xml:lang="en">The universe created by J.R.R Tolkien for his literary works.</rdfs:comment>
         <rdfs:label>Eä</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Electronical -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Electronical">
+        <rdf:type rdf:resource="http://example.org/ontology#MusicGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Fantasy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Fantasy">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
     </owl:NamedIndividual>
     
 
@@ -1180,7 +1521,8 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Hamlet">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#StagePlay"/>
-        <storyMedia:fullLabel xml:lang="en">The Tragedy of Hamlet, Prince of Denmark</storyMedia:fullLabel>
+        <storyMedia:hasGenre rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Tragedy"/>
+        <title xml:lang="en">The Tragedy of Hamlet, Prince of Denmark</title>
         <rdfs:label>Hamlet</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1216,6 +1558,15 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#HipHop -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HipHop">
+        <rdf:type rdf:resource="http://example.org/ontology#MusicGenre"/>
+        <rdfs:label>Hip hop</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#Hobbit1966Movie -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Hobbit1966Movie">
@@ -1233,7 +1584,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies"/>
         <hasLooseAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Hobbit1966Movie"/>
         <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Ea"/>
-        <storyMedia:fullLabel xml:lang="en">The Hobbit, or There and Back Again</storyMedia:fullLabel>
+        <title xml:lang="en">The Hobbit, or There and Back Again</title>
         <rdfs:label xml:lang="en">The Hobbit</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1245,9 +1596,19 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
         <storyMedia:hasFirstWork rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney"/>
         <storyMedia:isPrequelOf rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsMovies"/>
+        <storyMedia:producedBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#NewLineCinema"/>
         <belongsToFranchise rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsFranchise"/>
         <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Ea"/>
         <rdfs:label xml:lang="en">The Hobbit (film trilogy)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Horror -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Horror">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
+        <rdf:type rdf:resource="http://example.org/ontology#VideoGameGenre"/>
     </owl:NamedIndividual>
     
 
@@ -1271,6 +1632,25 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#IanMcKellen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#IanMcKellen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Actor"/>
+        <storyMedia:actsIn rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney"/>
+        <storyMedia:actsIn rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#DesolationOfSmaug"/>
+        <rdfs:label>Ian McKellen</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Jazz -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Jazz">
+        <rdf:type rdf:resource="http://example.org/ontology#MusicGenre"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#LionKing -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKing">
@@ -1281,6 +1661,10 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKingMusical"/>
         <hasRemake rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKingRemake"/>
         <hasSideStory rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LionKing1/2"/>
+        <cinematicType>Animation</cinematicType>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">88</runtime>
+        <title>The Lion King</title>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1994</year>
         <rdfs:label xml:lang="en">The Lion King</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1322,6 +1706,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKingOriginalMovies">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
+        <storyMedia:producedBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/WaltDisney"/>
         <rdfs:label>The Lion King (2D animated series)</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1353,6 +1738,7 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Series"/>
         <storyMedia:hasAlternativeVersion rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth"/>
         <storyMedia:hasAlternativeVersion rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth2"/>
+        <storyMedia:producedBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#NewLineCinema"/>
         <belongsToFranchise rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#LordOfTheRingsFranchise"/>
         <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth"/>
         <hasLooseAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth2"/>
@@ -1400,6 +1786,81 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Mystery -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Mystery">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#NewLineCinema -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#NewLineCinema">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/ProductionCompany"/>
+        <rdfs:label>New Line Cinema</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Party -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Party">
+        <rdf:type rdf:resource="http://example.org/ontology#BoardGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Platformer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Platformer">
+        <rdf:type rdf:resource="http://example.org/ontology#VideoGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Poker -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Poker">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/TabletopGame"/>
+        <storyMedia:hasGenre rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#CardGames"/>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1937</year>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Pop -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Pop">
+        <rdf:type rdf:resource="http://example.org/ontology#MusicGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Puzzle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Puzzle">
+        <rdf:type rdf:resource="http://example.org/ontology#VideoGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#RPG -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#RPG">
+        <rdf:type rdf:resource="http://example.org/ontology#VideoGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Reggae -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Reggae">
+        <rdf:type rdf:resource="http://example.org/ontology#MusicGenre"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie">
@@ -1420,6 +1881,39 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#RnB -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#RnB">
+        <rdf:type rdf:resource="http://example.org/ontology#MusicGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Rock -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Rock">
+        <rdf:type rdf:resource="http://example.org/ontology#MusicGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#RolePlaying -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#RolePlaying">
+        <rdf:type rdf:resource="http://example.org/ontology#BoardGameGenre"/>
+        <rdfs:label>Role playing</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Romance -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Romance">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#SamRaimiSpidermanMovies -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#SamRaimiSpidermanMovies">
@@ -1427,6 +1921,32 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <storyMedia:hasDirectSequel rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#SpidermanNoWayHome"/>
         <takesPlaceInUniverse rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#MarvelSuperheroUniverse"/>
         <rdfs:label>Spider-Man (Sam Raimi&apos;s film series)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#ScienceFiction -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#ScienceFiction">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
+        <rdfs:label>Sci-fi</rdfs:label>
+        <rdfs:label>Science fiction</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Shooter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Shooter">
+        <rdf:type rdf:resource="http://example.org/ontology#VideoGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Simulation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Simulation">
+        <rdf:type rdf:resource="http://example.org/ontology#VideoGameGenre"/>
     </owl:NamedIndividual>
     
 
@@ -1443,11 +1963,60 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Sports -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Sports">
+        <rdf:type rdf:resource="http://example.org/ontology#VideoGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Strategy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Strategy">
+        <rdf:type rdf:resource="http://example.org/ontology#BoardGameGenre"/>
+        <rdf:type rdf:resource="http://example.org/ontology#VideoGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia#TheLastAirbender -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TheLastAirbender">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
         <rdfs:label>The Last Airbender</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Thriller -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Thriller">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#TileLaying -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TileLaying">
+        <rdf:type rdf:resource="http://example.org/ontology#BoardGameGenre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Tragedy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Tragedy">
+        <rdf:type rdf:resource="http://example.org/ontology#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia#Trivia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Trivia">
+        <rdf:type rdf:resource="http://example.org/ontology#BoardGameGenre"/>
     </owl:NamedIndividual>
     
 
@@ -1485,6 +2054,38 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/HermanMelville -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/HermanMelville">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Writer"/>
+        <title>Herman Melville</title>
+        <rdfs:label>Herman Melville</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/Inception -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Inception">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Film"/>
+        <cinematicType>Live Action</cinematicType>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">148</runtime>
+        <title>Inception</title>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">2010</year>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/LeonardoDiCaprio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/LeonardoDiCaprio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Actor"/>
+        <title>Leonardo DiCaprio</title>
+        <rdfs:label>Leonardo DiCaprio</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBooks -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBooks">
@@ -1497,6 +2098,30 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/MatthewBroderick -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/MatthewBroderick">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Actor"/>
+        <title>Matthew Broderick</title>
+        <rdfs:label>Matthew Broderick</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/MobyDick -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/MobyDick">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/Novel"/>
+        <storyMedia:hasGenre rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#Adventure"/>
+        <storyMedia:writtenBy rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/HermanMelville"/>
+        <pageCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">635</pageCount>
+        <title>Moby Dick</title>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1851</year>
+        <rdfs:label>Moby Dick</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/storyMedia/ReturnOfTheKingBook -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/ReturnOfTheKingBook">
@@ -1504,6 +2129,15 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
         <belongsToSeries rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBooks"/>
         <hasDirectAdaptation rdf:resource="http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie"/>
         <rdfs:label xml:lang="en">The Lord of the Rings: The Return of the King</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/Syncopy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Syncopy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/ProductionCompany"/>
+        <title>Syncopy Inc.</title>
     </owl:NamedIndividual>
     
 
@@ -1520,6 +2154,16 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/storyMedia/WaltDisney -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/storyMedia/WaltDisney">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/storyMedia/ProductionCompany"/>
+        <title>Walt Disney Pictures</title>
+        <rdfs:label>Walt Disney Pictures</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -1528,6 +2172,16 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/ontology#Genre"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Company"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Person"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Universe"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Work"/>
+        </owl:members>
+    </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
@@ -1562,29 +2216,49 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
         <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Abstract"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Action"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Adventure"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#AmazingSpidermanMovies"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#AnUnexpectedJourney"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#AvatarTheLastAirbender"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Backgammon"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarth2"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleForMiddleEarthSeries"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#BattleOfTheFiveArmies"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Blues"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Book1Water"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Book2Earth"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Book3Fire"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#CardGames"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Chess"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Classical"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Comedy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Cooperative"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Country"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#DeckBuilding"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#DesolationOfSmaug"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#DesolationOfSmaugOst"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Dice"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Drama"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Ea"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Electronical"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Fantasy"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#FellowshipOfTheRingMovie"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Hamlet"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou1995"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HeLivesInYou2019"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HipHop"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Hobbit1966Movie"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HobbitBook"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#HobbitMovies"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Horror"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#ISeeFire"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#ISeeFireMusicVideo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#IanMcKellen"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Jazz"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKing"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKing2"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKingMusical"/>
@@ -1597,16 +2271,46 @@ or the plot itself is not important enough for the order to matter.</rdfs:commen
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#MarvelSpidermanMovies"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#MarvelSuperheroUniverse"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Mufasa"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Mystery"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#NewLineCinema"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Party"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Platformer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Poker"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Pop"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Puzzle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#RPG"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Reggae"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#ReturnOfTheKingMovie"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#RiseOfTheWitchKing"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#RnB"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Rock"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#RolePlaying"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Romance"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#SamRaimiSpidermanMovies"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#ScienceFiction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Shooter"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Simulation"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#SpidermanNoWayHome"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Sports"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Strategy"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TheLastAirbender"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Thriller"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TileLaying"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Tragedy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#Trivia"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#TwoTowersMovie"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia#LionKing1/2"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/FellowshipOfTheRingBook"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/HermanMelville"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Inception"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/LeonardoDiCaprio"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/LordOfTheRingsBooks"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/MatthewBroderick"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/MobyDick"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/ReturnOfTheKingBook"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/Syncopy"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/TwoTowersBook"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/storyMedia/WaltDisney"/>
         </owl:distinctMembers>
     </rdf:Description>
 </rdf:RDF>
