@@ -1,4 +1,4 @@
-# MediaOntology
+# The Story/Media Ontology
 
 The purpose of this ontology is to store information about works of art and media and their connections, approaching the issue from two points of view:
 
@@ -6,9 +6,9 @@ The purpose of this ontology is to store information about works of art and medi
 
 2. grouping of multiple works into greater wholes based on production or marketing, such as series and brands
 
-For concrete information about the entities in the ontology, check the OWL doc documentation.
+For concrete information about the entities in the ontology, check the OWL doc documentation (data about individuals seems to be incorrectly exported by Protégé, showing nonexisting assertions in the OWL doc for most individuals).
 
 ## Authors:
 
-- Jakub Kloc - object properties, Universe and Work classes, individuals without data properties (demonstration of Work classes and object properties)
-- Matúš Ratkovský - data properties, all the other classes, individuals with data properties (demonstration of other class and data properties)
+- Jakub Kloc - Universe and Work classes and Work subclasses; most object properties; individuals demonstrating various Work types and their relationships in some media (Tolkien's works, Lion King, Avatar the Last Airbender, Spider-man)
+- Matúš Ratkovský - data properties; classes Person, Genre and Company, their subclasses, and all related object properties; individuals demonstrating the aforementioned classes; labelling of existing individuals with data properties
